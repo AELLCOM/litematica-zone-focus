@@ -2087,12 +2087,6 @@ public final class GuiZoneManager extends GuiBase
     }
 
     @Override
-    public boolean preeditUpdated(net.minecraft.client.input.@Nullable PreeditEvent event)
-    {
-        return TextFocus.preedit(event) || super.preeditUpdated(event);
-    }
-
-    @Override
     public void removed()
     {
         if (this.renaming != null)

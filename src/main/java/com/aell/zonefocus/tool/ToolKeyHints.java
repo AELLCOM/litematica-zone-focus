@@ -17,7 +17,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.util.profiling.ProfilerFiller;
 
 @Environment(EnvType.CLIENT)
@@ -36,17 +36,17 @@ public final class ToolKeyHints implements IRenderer
 
     public static void register()
     {
-        RenderEventHandler.getInstance().registerInGameGuiRenderer(INSTANCE);
+        RenderEventHandler.getInstance().registerGameOverlayRenderer(INSTANCE);
     }
 
     @Override
-    public void onExtractGuiOverlayPost(GuiContext ctx, float partialTicks, ProfilerFiller profiler)
+    public void onRenderGameOverlayPostAdvanced(GuiContext ctx, float partialTicks, ProfilerFiller profiler)
     {
         Minecraft mc = Minecraft.getInstance();
 
         if (! ZoneTool.getInstance().isActive() || GuiUtils.getCurrentScreen() != null
                 || ! ZoneFocusConfigs.TOOL_KEY_HINTS.getBooleanValue()
-                || mc.player == null || mc.gui.hud.isHidden())
+                || mc.player == null || mc.options.hideGui)
         {
             return;
         }
@@ -75,7 +75,7 @@ public final class ToolKeyHints implements IRenderer
         return hints;
     }
 
-    private static void draw(GuiGraphicsExtractor gfx, Font font, List<Hint> hints)
+    private static void draw(GuiGraphics gfx, Font font, List<Hint> hints)
     {
         int screenWidth = GuiUtils.getScaledWindowWidth();
         int screenHeight = GuiUtils.getScaledWindowHeight();

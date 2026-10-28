@@ -27,7 +27,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientChunkEvents;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.rendering.v1.level.LevelRenderEvents;
+import net.fabricmc.fabric.api.client.rendering.v1.world.WorldRenderEvents;
 import net.fabricmc.fabric.api.event.player.AttackBlockCallback;
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.fabricmc.fabric.api.event.player.UseBlockCallback;
@@ -77,7 +77,7 @@ public class ZoneFocusClient implements ClientModInitializer, IKeybindProvider, 
         ToolButton.register();
         ToolKeyHints.register();
 
-        LevelRenderEvents.BEFORE_GIZMOS.register(context -> {
+        WorldRenderEvents.BEFORE_DEBUG_RENDER.register(context -> {
             if (ZoneFocusModule.isEnabled())
             {
                 ZoneTool.getInstance().onRenderTick(Minecraft.getInstance());
@@ -89,7 +89,7 @@ public class ZoneFocusClient implements ClientModInitializer, IKeybindProvider, 
         ClientChunkEvents.CHUNK_LOAD.register((world, chunk) -> {
             if (ZoneFocusModule.isEnabled())
             {
-                ZoneVerifier.getInstance().onChunkLoaded(chunk.getPos().x(), chunk.getPos().z());
+                ZoneVerifier.getInstance().onChunkLoaded(chunk.getPos().x, chunk.getPos().z);
             }
         });
 

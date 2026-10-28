@@ -26,11 +26,11 @@ public final class ZoneChat
 
         if (ZoneFocusConfigs.CHAT_MESSAGES.getBooleanValue())
         {
-            mc.player.sendSystemMessage(body);
+            mc.player.displayClientMessage(body, false);
         }
         else
         {
-            mc.gui.hud.setOverlayMessage(body, false);
+            mc.gui.setOverlayMessage(body, false);
         }
     }
 }

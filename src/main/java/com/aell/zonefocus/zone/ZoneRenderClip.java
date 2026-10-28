@@ -11,7 +11,7 @@ import fi.dy.masa.litematica.util.SchematicWorldRefresher;
 import fi.dy.masa.litematica.util.WorldUtils;
 import fi.dy.masa.litematica.world.SchematicWorldHandler;
 import fi.dy.masa.litematica.world.WorldSchematic;
-import fi.dy.masa.malilib.util.position.IntBoundingBox;
+import fi.dy.masa.malilib.util.IntBoundingBox;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -286,7 +286,7 @@ public final class ZoneRenderClip
         forEachChunk(next, (chunkX, chunkZ) -> {
             if (schedule(chunkX, chunkZ))
             {
-                pending.add(ChunkPos.pack(chunkX, chunkZ));
+                pending.add(ChunkPos.asLong(chunkX, chunkZ));
             }
         });
 
@@ -342,7 +342,7 @@ public final class ZoneRenderClip
     {
         if (! pending.isEmpty())
         {
-            pending.remove(ChunkPos.pack(chunkX, chunkZ));
+            pending.remove(ChunkPos.asLong(chunkX, chunkZ));
         }
     }
 
@@ -429,7 +429,7 @@ public final class ZoneRenderClip
 
         if (! owned)
         {
-            misses.add(ChunkPos.pack(original.minX() >> 4, original.minZ() >> 4));
+            misses.add(ChunkPos.asLong(original.minX() >> 4, original.minZ() >> 4));
         }
 
         return result;

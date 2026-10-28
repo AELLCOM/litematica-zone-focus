@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Litematica のスキーマティックをゾーンに分割し、今建築中のゾーンだけを描画し、その進捗を追跡して、スキーマティックと照合します。",
-  "modmenu.summaryTranslation.zonefocus": "Litematica のスキーマティックをゾーンに分割し、今建築中のゾーンだけを描画し、その進捗を追跡して、スキーマティックと照合します。",
+  "modmenu.descriptionTranslation.zonefocus": "設置したスケマティックをGUIでゾーンのグリッドに分割し（マウスでゾーンをひとつドラッグして指定することも可能）、建築中のゾーンを選ぶと、スケマティックはその中だけ描画され、進捗と検証もその部分だけ集計されます。設定は Ctrl + J で開きます。",
+  "modmenu.summaryTranslation.zonefocus": "設置したスケマティックをゾーンに分割し、1ゾーンずつ建築・表示・検証できます。",
   "zonefocus.config.autoNextWhenDone.name": "完成したら次のゾーンへ",
   "zonefocus.config.autoNextWhenDone.tooltip": "アクティブゾーンに置く物がなくなったら、次のゾーンに切り替えます",
   "zonefocus.config.autoZoneByPosition.name": "アクティブゾーンが追従",

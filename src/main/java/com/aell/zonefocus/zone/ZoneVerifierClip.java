@@ -24,7 +24,7 @@ public final class ZoneVerifierClip
 
         for (SchematicVerifier.MismatchRenderPos entry : list)
         {
-            if (ZoneRenderClip.contains(entry.pos()))
+            if (ZoneRenderClip.contains(entry.pos))
             {
                 result.add(entry);
             }

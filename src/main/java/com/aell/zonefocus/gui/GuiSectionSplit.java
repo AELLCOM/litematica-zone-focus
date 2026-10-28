@@ -979,12 +979,6 @@ public final class GuiSectionSplit extends GuiBase
     }
 
     @Override
-    public boolean preeditUpdated(net.minecraft.client.input.@Nullable PreeditEvent event)
-    {
-        return TextFocus.preedit(event) || super.preeditUpdated(event);
-    }
-
-    @Override
     public void removed()
     {
         for (TextInput f : this.fields)

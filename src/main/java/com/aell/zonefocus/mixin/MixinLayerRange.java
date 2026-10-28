@@ -2,8 +2,8 @@ package com.aell.zonefocus.mixin;
 
 import com.aell.zonefocus.zone.ZoneRenderClip;
 import fi.dy.masa.litematica.data.DataManager;
-import fi.dy.masa.malilib.util.position.IntBoundingBox;
-import fi.dy.masa.malilib.util.position.LayerRange;
+import fi.dy.masa.malilib.util.IntBoundingBox;
+import fi.dy.masa.malilib.util.LayerRange;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

@@ -22,7 +22,7 @@ public abstract class MixinChunkRendererSchematicVbo
 
         if (pos != null)
         {
-            ZoneRenderClip.onChunkRebuilt(pos.x(), pos.z());
+            ZoneRenderClip.onChunkRebuilt(pos.x, pos.z);
         }
     }
 }

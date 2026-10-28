@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Teilt eine Litematica-Schematic in Zonen auf, zeigt nur die Zone, die du gerade baust, verfolgt ihren Fortschritt und prüft sie gegen die Schematic.",
-  "modmenu.summaryTranslation.zonefocus": "Teilt eine Litematica-Schematic in Zonen auf, zeigt nur die Zone, die du gerade baust, verfolgt ihren Fortschritt und prüft sie gegen die Schematic.",
+  "modmenu.descriptionTranslation.zonefocus": "Teilt eine platzierte Schematic über die GUI in ein Zonenraster (oder du ziehst eine Zone mit der Maus auf) und du wählst die Zone, die du gerade baust: Die Schematic wird nur darin gerendert, Fortschritt und Prüfung zählen nur für dieses Stück. Die Einstellungen öffnest du mit Ctrl + J.",
+  "modmenu.summaryTranslation.zonefocus": "Teilt eine platzierte Schematic in Zonen: bau, sieh und prüfe eine Zone nach der anderen.",
   "zonefocus.config.autoNextWhenDone.name": "Bei Fertigstellung zur nächsten Zone",
   "zonefocus.config.autoNextWhenDone.tooltip": "Wenn in der aktiven Zone nichts mehr zu setzen ist, zur nächsten wechseln",
   "zonefocus.config.autoZoneByPosition.name": "Aktive Zone folgt dir",

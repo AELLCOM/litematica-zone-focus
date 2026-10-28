@@ -2,7 +2,7 @@ package com.aell.zonefocus.tool;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 
 @Environment(EnvType.CLIENT)
 public final class ToolIcon
@@ -21,7 +21,7 @@ public final class ToolIcon
 
     private ToolIcon() {}
 
-    public static void drawSelect(GuiGraphicsExtractor gfx, int x, int y)
+    public static void drawSelect(GuiGraphics gfx, int x, int y)
     {
         int arm = 4;
 
@@ -37,7 +37,7 @@ public final class ToolIcon
         rect(gfx, x + SIZE / 2 - 1, y + SIZE / 2 - 1, 2, 2, COLOR_SELECT);
     }
 
-    public static void drawLock(GuiGraphicsExtractor gfx, int x, int y)
+    public static void drawLock(GuiGraphics gfx, int x, int y)
     {
         int bodyX = x + 1;
         int bodyY = y + 6;
@@ -51,7 +51,7 @@ public final class ToolIcon
         rect(gfx, bodyX + 5, bodyY + 2, 2, 4, COLOR_HOLE);
     }
 
-    public static void drawMouseWheel(GuiGraphicsExtractor gfx, int x, int y)
+    public static void drawMouseWheel(GuiGraphics gfx, int x, int y)
     {
         int w = MOUSE_WIDTH;
         int h = MOUSE_HEIGHT;
@@ -64,7 +64,7 @@ public final class ToolIcon
         rect(gfx, x + w / 2, y + 2, 1, 3, COLOR_WHEEL);
     }
 
-    private static void rect(GuiGraphicsExtractor gfx, int x, int y, int width, int height, int color)
+    private static void rect(GuiGraphics gfx, int x, int y, int width, int height, int color)
     {
         gfx.fill(x, y, x + width, y + height, color);
     }

@@ -5,7 +5,7 @@ import com.aell.zonefocus.ZoneFocusModule;
 import com.aell.zonefocus.config.ZoneFocusConfigs;
 import fi.dy.masa.litematica.data.DataManager;
 import fi.dy.masa.litematica.selection.Box;
-import fi.dy.masa.malilib.util.position.LayerRange;
+import fi.dy.masa.malilib.util.LayerRange;
 import java.util.List;
 import java.util.Locale;
 import net.fabricmc.api.EnvType;

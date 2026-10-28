@@ -18,7 +18,7 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.screen.v1.ScreenEvents;
 import net.fabricmc.fabric.api.client.screen.v1.Screens;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.narration.NarratedElementType;
@@ -58,7 +58,7 @@ public final class ToolButton extends AbstractWidget
                 return;
             }
 
-            Screens.getWidgets(screen).add(new ToolButton((AbstractContainerScreen<?>) screen));
+            Screens.getButtons(screen).add(new ToolButton((AbstractContainerScreen<?>) screen));
         });
     }
 
@@ -102,7 +102,7 @@ public final class ToolButton extends AbstractWidget
     {
         List<SlotAnchor.Rect> rects = new ArrayList<>();
 
-        for (AbstractWidget widget : Screens.getWidgets(this.screen))
+        for (AbstractWidget widget : Screens.getButtons(this.screen))
         {
             if (widget == this || ! widget.visible)
             {
@@ -165,12 +165,12 @@ public final class ToolButton extends AbstractWidget
 
         if (tool.isActive())
         {
-            Minecraft.getInstance().gui.setScreen(null);
+            Minecraft.getInstance().setScreen(null);
         }
     }
 
     @Override
-    protected void extractWidgetRenderState(GuiGraphicsExtractor gfx, int mouseX, int mouseY, float partialTick)
+    protected void renderWidget(GuiGraphics gfx, int mouseX, int mouseY, float partialTick)
     {
         this.reposition();
 

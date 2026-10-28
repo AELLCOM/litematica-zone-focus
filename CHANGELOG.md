@@ -7,14 +7,25 @@ The original Russian notes are in [CHANGELOG.ru.md](CHANGELOG.ru.md).
 
 Minecraft 26.3, 26.2, 1.21.11
 
-#### Fixed
-- **fix — no more crash on world join with an old Fabric Loader.** On Fabric Loader 0.19.3 and older the game crashed when you entered a world, and the crash report blamed Voxy or Litematica. Now, if your Fabric Loader (or Fabric API, malilib, Litematica) is too old, Fabric shows a clear window before the game starts, telling you exactly what to update.
+The first Zone Focus build for Minecraft 1.21.11.
 
-Nothing else changed since 0.1.1.
+#### New
+- **Sections — several schematics, each split its own way.** A section is one or more schematics plus a rule: a grid, the schematic's sub-regions, or zones drawn by hand. **New section** window, **Combined bounds** for several schematics, a section list in *Manage zones* (rename, hide, split again, delete), **S2 · Z7/24** labels in the HUD, **Next / Previous section** keys.
+- **Other sections don't get in the way:** *Hide other sections* (on by default) and *Other sections' frames*.
+- **Cut with the mouse** on the 2D map, one block per step; right-click for *Cut here* / *Remove cut*. **2D map from the top, front and side.**
+- **Look: Aell UI, Vanilla or Vanilla+** (*Counting* → *Interface style*).
+- **Chat messages are off by default** — feedback appears above the hotbar.
+
+#### Fixed
+- fix — a clear Fabric window instead of a crash on world join with an old Fabric Loader.
+- fix — Material HUD numbers did not refresh when a second schematic was enabled, moved or turned off inside a zone; a manual zone and a grid counted overlapping schematics differently; auto-switching jittered where two zones overlap.
+
+#### Not yet on 1.21.11
+3D of a section made of several schematics, the cut handles in 3D and the height slider need a newer Material HUD than the one available for 1.21.11. Zone Focus detects this by itself: 3D works for single-schematic sections, as before.
 
 #### 📦 You need
 
-Minecraft 26.3 · **Fabric Loader 0.19.5+** · Fabric API 0.161.0+ · malilib 0.30.1+ · Litematica 0.29.0+ · Java 25 · Litematica Material HUD 1.0.18+ for 3D sections and library zones (optional)
+Minecraft 1.21.11 · Fabric Loader 0.19.3+ · Fabric API · malilib · Litematica · Java 21 · Litematica Material HUD (optional)
 
 ## 0.1.1 — 2026-10-22
 

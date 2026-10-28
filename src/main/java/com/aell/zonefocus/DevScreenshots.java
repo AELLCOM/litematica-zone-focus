@@ -80,7 +80,7 @@ public final class DevScreenshots
             {
                 BlockPos base = mc.player.blockPosition();
                 ZoneManager.getInstance().setManualBox(base.offset(-24, -8, -24), base.offset(24, 8, 24));
-                mc.gui.setScreen(new GuiZoneMain(null));
+                mc.setScreen(new GuiZoneMain(null));
             }
             case 1 -> shot(mc, "1-zones");
             case 2 -> GuiZoneFocusConfigs.open(new GuiZoneMain(null),
@@ -92,7 +92,7 @@ public final class DevScreenshots
 
                 if (placement != null)
                 {
-                    mc.gui.setScreen(new com.aell.zonefocus.gui.manage.GuiZoneManager(null, placement));
+                    mc.setScreen(new com.aell.zonefocus.gui.manage.GuiZoneManager(null, placement));
                 }
             }
             case 5 -> shot(mc, "3-list");
@@ -131,7 +131,7 @@ public final class DevScreenshots
 
                 if ((index - 6) % 2 == 0)
                 {
-                    mc.gui.setScreen(GuiZoneFocusConfigs.create(null, null).showTab(tab));
+                    mc.setScreen(GuiZoneFocusConfigs.create(null, null).showTab(tab));
                 }
                 else
                 {
@@ -148,7 +148,7 @@ public final class DevScreenshots
 
     private static void shot(Minecraft mc, String name)
     {
-        Screenshot.grab(mc, false);
+        Screenshot.grab(mc.gameDirectory, mc.getMainRenderTarget(), msg -> { });
         System.out.println("[zonefocus] screenshot: " + name);
     }
 }

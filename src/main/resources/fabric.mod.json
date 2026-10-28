@@ -3,7 +3,7 @@
 	"id": "zonefocus",
 	"version": "${version}",
 	"name": "Litematica Zone Focus",
-	"description": "Splits a Litematica schematic into zones, renders only the zone you are building, tracks its progress and checks it against the schematic.",
+	"description": "Build large Litematica schematics piece by piece: split them into zones, render and see only the zone you're building, track its progress and verify it against the schematic.",
 	"authors": [
 		"Aell_"
 	],
@@ -30,7 +30,7 @@
 	"depends": {
 		"fabricloader": ">=${loader_version}",
 		"minecraft": "~${minecraft_version}",
-		"java": ">=25",
+		"java": ">=21",
 		"fabric-api": ">=${fabric_api_min}",
 		"malilib": ">=${malilib_version}",
 		"litematica": ">=${litematica_version}"

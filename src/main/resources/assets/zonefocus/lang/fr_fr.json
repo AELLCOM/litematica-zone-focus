@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Découpe un schéma Litematica en zones, n'affiche que la zone en cours de construction, suit sa progression et la vérifie par rapport au schéma.",
-  "modmenu.summaryTranslation.zonefocus": "Découpe un schéma Litematica en zones, n'affiche que la zone en cours de construction, suit sa progression et la vérifie par rapport au schéma.",
+  "modmenu.descriptionTranslation.zonefocus": "Découpe une schematic placée en une grille de zones via l'interface (ou trace une zone à la souris) et choisis la zone que tu construis : la schematic ne s'affiche qu'à l'intérieur, la progression et la vérification ne comptent que ce morceau. Ouvre les réglages avec Ctrl + J.",
+  "modmenu.summaryTranslation.zonefocus": "Découpe une schematic placée en zones : construis, affiche et vérifie une zone à la fois.",
   "zonefocus.config.autoNextWhenDone.name": "Passer à la zone suivante une fois finie",
   "zonefocus.config.autoNextWhenDone.tooltip": "Quand il n'y a plus rien à poser dans la zone active, passer à la suivante",
   "zonefocus.config.autoZoneByPosition.name": "La zone active te suit",

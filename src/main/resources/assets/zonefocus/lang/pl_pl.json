@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Dzieli schemat Litematica na strefy, renderuje tylko strefę, którą budujesz, śledzi jej postęp i sprawdza ją względem schematu.",
-  "modmenu.summaryTranslation.zonefocus": "Dzieli schemat Litematica na strefy, renderuje tylko strefę, którą budujesz, śledzi jej postęp i sprawdza ją względem schematu.",
+  "modmenu.descriptionTranslation.zonefocus": "Dzieli ustawiony schemat na siatkę stref w interfejsie (albo przeciągasz strefę myszą), a ty wybierasz strefę, którą budujesz: schemat renderuje się tylko w niej, a postęp i sprawdzanie liczą się tylko dla tego kawałka. Ustawienia otwierasz przez Ctrl + J.",
+  "modmenu.summaryTranslation.zonefocus": "Dzieli ustawiony schemat na strefy: budujesz, widzisz i sprawdzasz jedną strefę naraz.",
   "zonefocus.config.autoNextWhenDone.name": "Skacz do następnej strefy po skończeniu",
   "zonefocus.config.autoNextWhenDone.tooltip": "Kiedy w aktywnej strefie nie ma już nic do postawienia, przełącza na następną",
   "zonefocus.config.autoZoneByPosition.name": "Aktywna strefa podąża za tobą",

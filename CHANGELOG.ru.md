@@ -1,5 +1,38 @@
 # Changelog
 
+## 0.1.2+1.21.11 — порт на Minecraft 1.21.11 (25.10.2026)
+
+**RU**
+
+Линия 0.1.x (участки, разрезы, виды карты, оформление Aell UI / Vanilla / Vanilla+, понятное окно на старом Fabric Loader)
+под Minecraft 1.21.11 (Litematica 0.26.16, malilib 0.27.20, Java 21). Код — дерево 26.3 (= подготовленная 0.1.2), описание и переводы — из jar 0.1.2.
+Правки под 1.21.11: `GuiGraphicsExtractor` → `GuiGraphics` (`ToolButton.renderWidget`, `ToolIcon`, `ToolKeyHints`),
+оверлей malilib `registerGameOverlayRenderer`/`onRenderGameOverlayPostAdvanced`, мировой хук
+`WorldRenderEvents.BEFORE_DEBUG_RENDER` (вместо `LevelRenderEvents.BEFORE_GIZMOS`), `LayerRange` и `IntBoundingBox` из
+`fi.dy.masa.malilib.util` (в malilib 0.27 есть оба пакета — Litematica 0.26 берёт старый; с `position.IntBoundingBox`
+миксин `MixinLayerRange` падал на применении), `getLayerMin/Max`, `ChunkPos.x/z` и `asLong`, `Screens.getButtons`,
+`mc.setScreen`, `options.hideGui`, `displayClientMessage`, без `preeditUpdated` (в 1.21.11 его нет). Цели миксинов в
+Litematica 0.26.16 сверены по байткоду. `aell-ui` — с заменами из `../aell-ui-1.21.11`.
+
+Material HUD для 1.21.11 пока отдаёт API 5: превью участка из нескольких схем, ручки разрезов в 3D и ползунок среза
+(API 6) не включаются — Zone Focus сам это проверяет (`MaterialHudCompat.hasSectionPreview()`) и показывает
+«3D — для участка из одной схемы», как до 0.1.0. Компилируется против jar MHUD 1.0.21+26.3 (сигнатуры API 6); что все
+остальные ссылки есть в MHUD 1.21.11, проверено скриптом `~/projects/_port-1.21.11-26.2/mhudrefs.py`.
+
+Проверено (25.10.2026), харнесс Material HUD 1.21.11 (копия стенда `Beta FIX/_port-mhud-stand-1.21.11`, тесты ZF перенесены из стенда 26.3): `zonelib`, `zfviews`, `zfverify`,
+`zonesshot`, `zonecard` — OK, `zoneplace` — «всё прошло», `zfsections` — всё, кроме трёх проверок шага 10 (ручки
+разрезов в 3D, ползунок среза — это API 6).
+
+Сборка `-port.2`: перепроверка нашла устаревшую замену `aell-ui-1.21.11/.../kit/TextInput.java` (копия от 12.10 без
+веток ванильного стиля, добавленных в общий файл 22.10) — поля ввода в стиле Vanilla оставались в стиле Aell. Ветки
+перенесены (замена теперь отличается от общего файла только местами IME). Снимок `zfsections` с `LL_UI_VANILLA=1` —
+поля ванильные. Замена общая: Material HUD и EPF+ для 1.21.11 получат исправление при следующей сборке.
+
+**EN**
+
+The 0.1.x line (sections, cuts, map views, Aell UI / Vanilla / Vanilla+ look) for Minecraft 1.21.11. The multi-schematic
+section preview, 3D cut handles and the height slider need Material HUD API 6, which Material HUD for 1.21.11 doesn't have yet.
+
 ## 0.1.2+26.3 — 23.10.2026
 
 **RU**
