@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Litematica 스키매틱을 구역으로 나누고, 지금 짓고 있는 구역만 렌더링하며, 진행 상황을 추적하고 스키매틱과 대조합니다.",
-  "modmenu.summaryTranslation.zonefocus": "Litematica 스키매틱을 구역으로 나누고, 지금 짓고 있는 구역만 렌더링하며, 진행 상황을 추적하고 스키매틱과 대조합니다.",
+  "modmenu.descriptionTranslation.zonefocus": "배치한 스케매틱을 GUI로 구역 격자로 나누고(마우스로 구역 하나를 드래그해도 돼요) 짓고 있는 구역을 고르면, 스케매틱은 그 안에서만 렌더링되고 진행도와 검증도 그 조각만 계산돼요. 설정은 Ctrl + J 로 열어요.",
+  "modmenu.summaryTranslation.zonefocus": "배치한 스케매틱을 구역으로 나눠서 한 번에 한 구역씩 짓고, 보고, 검증해요.",
   "zonefocus.config.autoNextWhenDone.name": "완성하면 다음 구역으로",
   "zonefocus.config.autoNextWhenDone.tooltip": "활성 구역에 더 놓을 게 없으면 다음 구역으로 넘어가요",
   "zonefocus.config.autoZoneByPosition.name": "위치 따라 활성 구역 전환",

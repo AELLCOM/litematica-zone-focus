@@ -104,6 +104,8 @@ def checkOptionalDependencyIsolation = tasks.register('checkOptionalDependencyIs
 tasks.named('check') { dependsOn checkOptionalDependencyIsolation }
 
 def sharedUiRoot = file("${rootDir}/aell-ui/src/main/java")
+// 26.2: файлы aell-ui, которые под 26.2 отличаются, лежат в aell-ui-26.2 и заменяют общие
+def sharedUiOverrides = file("${rootDir}/aell-ui-26.2/src/main/java")
 def shadedUiPackage = 'com.aell.zonefocus.shaded.ui'
 def shadedUiPath = shadedUiPackage.replace('.', '/')
 
@@ -112,7 +114,10 @@ tasks.register('generateSharedUi', Copy) {
         throw new GradleException("aell-ui not found at ${sharedUiRoot}; it ships inside this repository")
     }
 
-    from(sharedUiRoot) { include 'com/aell/ui/**/*.java' }
+    def overridden = fileTree(sharedUiOverrides).matching { include 'com/aell/ui/**/*.java' }.files
+            .collect { sharedUiOverrides.toPath().relativize(it.toPath()).toString().replace('\\', '/') }
+    from(sharedUiRoot) { include 'com/aell/ui/**/*.java'; exclude overridden }
+    from(sharedUiOverrides) { include 'com/aell/ui/**/*.java' }
     into layout.buildDirectory.dir('generated/shared-ui')
     includeEmptyDirs = false
     eachFile { it.path = it.path.replace('com/aell/ui', shadedUiPath) }

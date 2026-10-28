@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "将 Litematica 投影划分为多个区域，只渲染你正在建造的区域，跟踪其进度，并与投影进行核对。",
-  "modmenu.summaryTranslation.zonefocus": "将 Litematica 投影划分为多个区域，只渲染你正在建造的区域，跟踪其进度，并与投影进行核对。",
+  "modmenu.descriptionTranslation.zonefocus": "通过界面把已放置的原理图切成区域网格（也可以用鼠标拖出一个区域），再选中正在建造的区域：原理图只在该区域内渲染，进度和校验也只统计这一块。按 Ctrl + J 打开设置。",
+  "modmenu.summaryTranslation.zonefocus": "把已放置的原理图拆分成多个区域：一次只建造、渲染和校验一个区域。",
   "zonefocus.config.autoNextWhenDone.name": "完成后跳到下一个区域",
   "zonefocus.config.autoNextWhenDone.tooltip": "当前区域没有可放置的方块时，切换到下一个区域",
   "zonefocus.config.autoZoneByPosition.name": "当前区域跟随位置",

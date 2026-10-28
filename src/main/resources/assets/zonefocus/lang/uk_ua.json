@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Ділить схему Litematica на зони, показує лише ту зону, яку будуєш, стежить за її прогресом і перевіряє її за схемою.",
-  "modmenu.summaryTranslation.zonefocus": "Ділить схему Litematica на зони, показує лише ту зону, яку будуєш, стежить за її прогресом і перевіряє її за схемою.",
+  "modmenu.descriptionTranslation.zonefocus": "Розбиває поставлену схему на сітку зон через інтерфейс (або зона розмічається мишею), ти обираєш зону, яку будуєш: схема малюється лише всередині неї, прогрес і перевірка рахуються тільки по цьому шматку. Налаштування відкриваються по Ctrl + J.",
+  "modmenu.summaryTranslation.zonefocus": "Ділить поставлену схему на зони: будуєш, бачиш і перевіряєш по одній зоні за раз.",
   "zonefocus.config.autoNextWhenDone.name": "Переходити до наступної зони",
   "zonefocus.config.autoNextWhenDone.tooltip": "Коли в активній зоні більше нема чого ставити, перемикатися на наступну",
   "zonefocus.config.autoZoneByPosition.name": "Активна зона за позицією",

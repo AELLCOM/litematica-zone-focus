@@ -1,3 +1,3 @@
-malilib-fabric-26.3-0.30.1.jar https://cdn.modrinth.com/data/GcWjdA9I/versions/DPcJACN6/malilib-fabric-26.3-0.30.1.jar a43a41725bf86e2aafd600c3088d68c2231ff195
-litematica-fabric-26.3-0.29.0.jar https://cdn.modrinth.com/data/bEpr0Arc/versions/fEqsesPK/litematica-fabric-26.3-0.29.0.jar 4e7f9ffe3533a54cdecb9a4d6e0d2fb71723d338
-litematica-material-hud-1.0.18+26.3.jar https://cdn.modrinth.com/data/JmqA4Alf/versions/diiIBIqV/litematica-material-hud-1.0.18%2B26.3.jar 8aba660137755e560a01a040fec03e787cf8a414
+malilib-fabric-26.2-0.29.6.jar https://cdn.modrinth.com/data/GcWjdA9I/versions/KvjmGjAV/malilib-fabric-26.2-0.29.6.jar 8e4959313bec2d413ac898d1a030f1d73d419d5a
+litematica-fabric-26.2-0.28.8.jar https://cdn.modrinth.com/data/bEpr0Arc/versions/CuniXtbo/litematica-fabric-26.2-0.28.8.jar 736eda2b7a9f08ef2a104f6a79bce2c2715ecf28
+litematica-material-hud-1.0.21+26.3.jar https://cdn.modrinth.com/data/JmqA4Alf/versions/q8OO0o6m/litematica-material-hud-1.0.21%2B26.3.jar 4c66352ab6095e17e9b9ac372eb7975b4ffe1eab

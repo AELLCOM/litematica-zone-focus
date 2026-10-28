@@ -7,14 +7,25 @@ The original Russian notes are in [CHANGELOG.ru.md](CHANGELOG.ru.md).
 
 Minecraft 26.3, 26.2, 1.21.11
 
-#### Fixed
-- **fix — no more crash on world join with an old Fabric Loader.** On Fabric Loader 0.19.3 and older the game crashed when you entered a world, and the crash report blamed Voxy or Litematica. Now, if your Fabric Loader (or Fabric API, malilib, Litematica) is too old, Fabric shows a clear window before the game starts, telling you exactly what to update.
+The 0.1 line comes to Minecraft 26.2 (the last 26.2 build was 0.0.8). Your existing zones are kept.
 
-Nothing else changed since 0.1.1.
+#### New
+- **Sections — several schematics, each split its own way.** A section is one or more schematics plus a rule: a grid, the schematic's sub-regions, or zones drawn by hand. **New section** window, **Combined bounds** for several schematics, a section list in *Manage zones* (rename, hide, split again, delete), **S2 · Z7/24** labels in the HUD, **Next / Previous section** keys.
+- **Other sections don't get in the way:** *Hide other sections* (on by default) and *Other sections' frames*.
+- **Cut with the mouse** on the 2D map, one block per step; right-click for *Cut here* / *Remove cut*. **2D map from the top, front and side.**
+- **Look: Aell UI, Vanilla or Vanilla+** (*Counting* → *Interface style*).
+- **Chat messages are off by default** — feedback appears above the hotbar.
+
+#### Fixed
+- fix — a clear Fabric window instead of a crash on world join with an old Fabric Loader.
+- fix — Material HUD numbers did not refresh when a second schematic was enabled, moved or turned off inside a zone; a manual zone and a grid counted overlapping schematics differently; auto-switching jittered where two zones overlap.
+
+#### Not yet on 26.2
+3D of a section made of several schematics, the cut handles in 3D and the height slider need a newer Material HUD than the one available for 26.2. Zone Focus detects this by itself: 3D works for single-schematic sections, as before.
 
 #### 📦 You need
 
-Minecraft 26.3 · **Fabric Loader 0.19.5+** · Fabric API 0.161.0+ · malilib 0.30.1+ · Litematica 0.29.0+ · Java 25 · Litematica Material HUD 1.0.18+ for 3D sections and library zones (optional)
+Minecraft 26.2 · Fabric Loader 0.19.5+ · Fabric API · malilib · Litematica · Java 25 · Litematica Material HUD (optional)
 
 ## 0.1.1 — 2026-10-22
 
@@ -81,31 +92,18 @@ Minecraft 26.3 · Fabric Loader · Fabric API · malilib · Litematica · Java 2
 
 Minecraft 26.3, 26.2
 
-#### New: "Manage zones" — one screen instead of three
-Split method, zones per axis, a top-down map with a number on every cell (click to make a zone active) and the zone list with progress, all on one screen.
+The current Zone Focus, now for Minecraft 26.2 too. The last 26.2 build was 0.0.6, so this one also brings 0.0.7 and 0.0.8:
 
-#### New: 3D zones (with Material HUD 1.0.5+)
-- **2D | 3D** in the header: in 3D the schematic preview from the Material HUD library shows zone frames and numbers. Click a zone to make it active.
-- **Isometric, Top, Front** camera buttons, as above the library preview.
-- **Block-by-block progress:** built blocks as they are, missing ones as a blue ghost, wrong ones red.
-- In 2D, a straight-down shot of the schematic sits under the zone cells, turned and mirrored like the placement.
-
-#### New: split a schematic file without placing it
-From the Material HUD library: the grid is saved for the file and applied to its placement automatically.
-
-#### Smaller changes
-- **Zone auto-switching is off by default** (both "By player position" and "Next one when finished"). Updating turns them off once; turn them back on under "Auto switching".
-- With Material HUD 1.0.5+, block verification is Material HUD's Ctrl+B; Ctrl+P toggles it.
-- Russian texts call schematic blocks "голограммы", as Litematica does.
-
-#### Fixes
-- fix — **Keys could not be bound in the settings:** the click on the field was recorded as the key.
-
-Also out now for **Minecraft 26.2** as 0.0.8+26.2.
+- **"Manage zones" — one screen instead of three:** split method, zones per axis, a top-down map (click a cell to make it active) and the zone list with progress.
+- **3D zones with Material HUD 1.0.6+26.2:** zone frames and numbers on the schematic preview, Isometric / Top / Front camera, block-by-block progress, and a straight-down shot of the schematic under the 2D map.
+- **Split a schematic file without placing it**, right from the Material HUD library.
+- **Zone auto-switching is off by default.** Updating turns it off once; turn it back on under "Auto switching".
+- **New settings screen**, shared with the other Aell_ Litematica mods: Esc unbinds a hotkey, the panel fits every tab name.
+- With Material HUD, block verification is its Ctrl+B; Ctrl+P toggles it.
 
 #### 📦 You need
 
-Minecraft 26.3 · Fabric Loader · Fabric API · malilib · Litematica · Java 25 · Litematica Material HUD 1.0.5+ for 3D and library zones (optional)
+Minecraft 26.2 · Fabric Loader · Fabric API · malilib 0.29.6 · Litematica 0.28.8 · Java 25 · Litematica Material HUD 1.0.6+26.2 for 3D and library zones (optional)
 
 ## 0.0.7 — 2026-10-03
 
@@ -122,11 +120,15 @@ Settings screen update, shared with the other Aell_ Litematica mods:
 
 Minecraft 26.3, 26.2
 
-Build for Minecraft 26.3. No functional changes — the same mod, compiled against Litematica 0.29.0 and malilib 0.30.1, with the settings screen moved from GLFW to the new SDL input.
+- **The schematic no longer renders outside the active zone after a jump between distant zones.** On a zone switch the previous zone is held visible for a moment while the new zone's chunks are rebuilt, so you do not get a blank flash. Litematica's render hook accepts a single box, so two zones could only be expressed as the box enclosing both — and for zones far apart that box covers everything between them, for up to two seconds. The hold-over now runs only between adjacent zones; on a jump the new zone appears straight away.
+
+#### ⚠️ Update Material HUD as well
+
+If you also run Litematica Material HUD, update it to 0.0.17. Earlier versions carried a built-in copy of Zone Focus that claimed the render hooks and, being dormant, filtered nothing — so this mod's zone clipping was switched off entirely.
 
 #### 📦 You need
 
-Minecraft 26.3 · Fabric Loader · Fabric API · malilib · Litematica · Java 25 · Litematica Material HUD 0.0.21+ for the shared settings tab (optional)
+Minecraft 26.2 · Fabric Loader · Fabric API · malilib · Litematica · Java 25
 
 ## 0.0.5 — 2026-08-30
 

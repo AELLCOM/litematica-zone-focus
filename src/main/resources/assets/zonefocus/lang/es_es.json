@@ -1,6 +1,6 @@
 {
-  "modmenu.descriptionTranslation.zonefocus": "Divide un esquema de Litematica en zonas, muestra solo la zona que estás construyendo, sigue su progreso y la compara con el esquema.",
-  "modmenu.summaryTranslation.zonefocus": "Divide un esquema de Litematica en zonas, muestra solo la zona que estás construyendo, sigue su progreso y la compara con el esquema.",
+  "modmenu.descriptionTranslation.zonefocus": "Divide un schematic colocado en una cuadrícula de zonas desde la interfaz (o marca una zona con el ratón) y elige la zona que estás construyendo: el schematic solo se dibuja dentro de ella, y el progreso y la verificación se cuentan solo para ese trozo. Abre los ajustes con Ctrl + J.",
+  "modmenu.summaryTranslation.zonefocus": "Divide un schematic colocado en zonas: construye, muestra y verifica una zona a la vez.",
   "zonefocus.config.autoNextWhenDone.name": "Saltar a la siguiente zona al terminar",
   "zonefocus.config.autoNextWhenDone.tooltip": "Cuando no queda nada que colocar en la zona activa, cambiar a la siguiente",
   "zonefocus.config.autoZoneByPosition.name": "La zona activa te sigue",

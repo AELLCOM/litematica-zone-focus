@@ -4,7 +4,7 @@ Splits a Litematica schematic into zones, renders only the zone you are building
 
 [Modrinth](https://modrinth.com/mod/litematica-zone-focus) · [CurseForge](https://www.curseforge.com/minecraft/mc-mods/litematica-zone-focus) · [Discord](https://discord.gg/jTU2yawThv)
 
-This branch (`main`) is the source of **0.1.2+26.3** for **Minecraft 26.3** (Fabric).
+This branch (`mc/26.2`) is the source of **0.1.2+26.2** for **Minecraft 26.2** (Fabric).
 Branches: `main` (26.3), `mc/26.2` (26.2), `mc/1.21.11` (1.21.11). Release notes: [CHANGELOG.md](CHANGELOG.md).
 
 ## Building

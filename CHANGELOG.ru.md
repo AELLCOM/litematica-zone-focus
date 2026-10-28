@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.2+26.2 — порт на Minecraft 26.2 (25.10.2026)
+
+**RU**
+
+Линия 0.1.x (участки, разрезы, виды карты, оформление Aell UI / Vanilla / Vanilla+, понятное окно на старом Fabric Loader)
+под Minecraft 26.2 (Litematica 0.28.8, malilib 0.29.6). Код — дерево 26.3 (= подготовленная 0.1.2), описание и переводы — из jar 0.1.2.
+Код — дерево 26.3 без изменений: API 26.2 в местах, которые трогает Zone Focus, совпадает с 26.3; `aell-ui` берёт
+замены из `../aell-ui-26.2`.
+
+Material HUD для 26.2 пока отдаёт API 5: превью участка из нескольких схем, ручки разрезов в 3D и ползунок среза
+(API 6) не включаются — Zone Focus сам это проверяет (`MaterialHudCompat.hasSectionPreview()`) и показывает
+«3D — для участка из одной схемы», как до 0.1.0. Компилируется против jar MHUD 1.0.21+26.3 (сигнатуры API 6); что все
+остальные ссылки есть в MHUD 26.2, проверено скриптом `~/projects/_port-1.21.11-26.2/mhudrefs.py`.
+
+Проверено (25.10.2026), харнесс Material HUD 26.2 (копия стенда `Beta FIX/_port-mhud-stand-26.2`, тесты ZF перенесены из стенда 26.3): `zonelib`, `zfviews`, `zfverify`,
+`zonesshot`, `zonecard` — OK, `zoneplace` — «всё прошло», `zfsections` — всё, кроме трёх проверок шага 10 (ручки
+разрезов в 3D, ползунок среза — это API 6).
+
+**EN**
+
+The 0.1.x line (sections, cuts, map views, Aell UI / Vanilla / Vanilla+ look) for Minecraft 26.2. The multi-schematic
+section preview, 3D cut handles and the height slider need Material HUD API 6, which Material HUD for 26.2 doesn't have yet.
+
 ## 0.1.2+26.3 — 23.10.2026
 
 **RU**
