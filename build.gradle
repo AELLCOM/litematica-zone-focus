@@ -1,0 +1,137 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.terraformersmc.com/releases' }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+
+    compileOnly files("libs/malilib-fabric-${project.minecraft_version}-${project.malilib_version}.jar")
+    compileOnly files("libs/litematica-fabric-${project.minecraft_version}-${project.litematica_version}.jar")
+    compileOnly files("libs/litematica-material-hud-${project.layerlist_version}.jar")
+
+    compileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.11.4'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// Нижние границы зависимостей в fabric.mod.json — версии, на которых мод собран: на старом загрузчике
+// или библиотеке Fabric покажет понятное окно «нужна версия X», а не вылет посреди игры.
+def depMins = [
+        'version'           : project.version,
+        'minecraft_version' : project.minecraft_version,
+        'loader_version'    : project.loader_version,
+        'fabric_api_min'    : project.fabric_api_version.split('\\+')[0],
+        'malilib_version'   : project.malilib_version,
+        'litematica_version': project.litematica_version,
+]
+
+processResources {
+    depMins.each { k, v -> inputs.property k, v }
+    filesMatching('fabric.mod.json') {
+        expand depMins
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
+/**
+ * Material HUD — необязательная зависимость: его классов в игре может не быть.
+ * Ссылаться на них разрешено только «мостику» (compat/MaterialHudBridge) и
+ * ZoneScope, которые загружаются лишь при MaterialHudCompat.isIntegrated().
+ * Любая ссылка из остального кода валит игру с NoClassDefFoundError у тех, у
+ * кого Material HUD не установлен, — поэтому проверяем это при сборке.
+ */
+def checkOptionalDependencyIsolation = tasks.register('checkOptionalDependencyIsolation') {
+    dependsOn tasks.named('classes')
+
+    doLast {
+        def allowed = ['com/aell/zonefocus/compat/MaterialHudBridge',
+                       'com/aell/zonefocus/zone/ZoneScope'] as Set
+        def offenders = []
+
+        fileTree("$buildDir/classes/java/main").matching { include '**/*.class' }.each { file ->
+            def name = file.path
+                    .substring("$buildDir/classes/java/main".length() + 1)
+                    .replace(File.separator, '/')
+                    .replaceAll(/\.class$/, '')
+            def owner = name.replaceAll(/\$\d+$/, '')
+
+            if (allowed.contains(owner)) {
+                return
+            }
+
+            def bytes = file.bytes
+            ['com/aell/layerlist', 'com/aell/zonefocus/zone/ZoneScope'].each { needle ->
+                if (new String(bytes, 'ISO-8859-1').contains(needle)) {
+                    offenders << "$name -> $needle"
+                }
+            }
+        }
+
+        if (! offenders.isEmpty()) {
+            throw new GradleException('Ссылки на опциональный Material HUD вне мостика:\n  '
+                    + offenders.join('\n  '))
+        }
+    }
+}
+
+tasks.named('check') { dependsOn checkOptionalDependencyIsolation }
+
+def sharedUiRoot = file("${rootDir}/aell-ui/src/main/java")
+def shadedUiPackage = 'com.aell.zonefocus.shaded.ui'
+def shadedUiPath = shadedUiPackage.replace('.', '/')
+
+tasks.register('generateSharedUi', Copy) {
+    if (! sharedUiRoot.isDirectory()) {
+        throw new GradleException("aell-ui not found at ${sharedUiRoot}; it ships inside this repository")
+    }
+
+    from(sharedUiRoot) { include 'com/aell/ui/**/*.java' }
+    into layout.buildDirectory.dir('generated/shared-ui')
+    includeEmptyDirs = false
+    eachFile { it.path = it.path.replace('com/aell/ui', shadedUiPath) }
+    filter { line -> line.replace('com.aell.ui', shadedUiPackage) }
+    inputs.property('shadedUiPackage', shadedUiPackage)
+}
+
+sourceSets.main.java.srcDir(layout.buildDirectory.dir('generated/shared-ui'))
+tasks.named('compileJava') { dependsOn tasks.named('generateSharedUi') }
+
+// Дымовой прогон: ./gradlew runClient -PsmokeWorld=<имя сейва> — клиент сам заходит в этот мир
+// (аргумент запуска --quickPlaySingleplayer), чтобы миксины, которые применяются только при
+// входе в мир, проверялись без рук.
+loom {
+    runs {
+        client {
+            if (project.hasProperty('smokeWorld')) {
+                programArgs '--quickPlaySingleplayer', project.property('smokeWorld')
+            }
+        }
+    }
+}

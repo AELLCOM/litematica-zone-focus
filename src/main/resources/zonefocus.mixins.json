@@ -1,0 +1,19 @@
+{
+	"required": true,
+	"package": "com.aell.zonefocus.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"IMixinAbstractContainerScreen",
+		"MixinChunkRendererSchematicVbo",
+		"MixinClientLevel",
+		"MixinLayerRange",
+		"MixinLitematicaConfigScreen",
+		"MixinLitematicaRenderLayerScreen",
+		"MixinRayTraceUtils",
+		"MixinSchematicVerifier",
+		"MixinWorldRendererSchematic"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
